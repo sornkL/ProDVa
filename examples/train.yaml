@@ -1,0 +1,59 @@
+model:
+  text_encoder_path: "/path/to/text_encoder"
+  language_model_path: "/path/to/protein_language_model"
+  phrase_encoder_path: "/path/to/fragment_encoder"
+  phrase_sampler_type: "PROTEIN_FRAGMENT"
+  protein_fragment_mapping_file: "/path/to/phrases.json"
+  use_text_encoder_proj: true
+  text_encoder_proj_pdrop: 0.1
+  text_encoder_proj_act: "tanh"
+  use_phrase_encoder_proj: true
+  phrase_encoder_proj_pdrop: 0.1
+  phrase_encoder_proj_act: "tanh"
+  phrase_encoder_batch_size: 64
+  use_type_loss: true
+  use_description_loss: true
+  type_loss_weight: 0.2
+  type_classification_head_pdrop: 0.1
+  type_classification_head_act: "tanh"
+  type_classification_head_num_classes: 6
+  description_loss_weight: 0.2
+  description_proj_pdrop: 0.1
+  description_proj_act: "tanh"
+
+data:
+  train_path: "/path/to/train_data.txt"
+  validation_path: "/path/to/validation_data.txt"
+  max_text_length: 256
+  max_sequence_length: 512
+  max_phrase_length: 512
+
+train:
+  finetuning_type: "FULL"
+  freeze_text_encoder: true
+  freeze_language_model: false
+  output_dir: "/path/to/output_dir"
+  learning_rate: 1e-4
+  warmup_ratio: 0.05
+  lr_scheduler_type: "cosine"
+  weight_decay: 0.0
+  adam_beta1: 0.9
+  adam_beta2: 0.95
+  adam_epsilon: 1e-8
+  max_grad_norm: 1.0
+  per_device_train_batch_size: 4
+  gradient_accumulation_steps: 2
+  logging_steps: 1
+  max_steps: 20000
+  save_steps: 5000
+  save_total_limit: 5
+  bf16: true
+  tf32: true
+  dataloader_num_workers: 16
+  dataloader_prefetch_factor: 2
+  gradient_checkpointing: true
+  gradient_checkpointing_kwargs:
+    use_reentrant: false
+  ddp_find_unused_parameters: true
+  deepspeed: "/path/to/deepspeed_config.json"
+  report_to: "none"

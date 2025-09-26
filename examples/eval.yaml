@@ -1,0 +1,26 @@
+model:
+  model_name_or_path: "/path/to/dva_model"
+  language_model_path: "/path/to/dva_model/lm_tokenizer"
+  phrase_encoder_path: "/path/to/dva_model/phrase_tokenizer"
+  phrase_sampler_type: "N_TOKENS"
+  sampler_model_path: "/path/to/phrase_sampler_tokenizer"
+  sampler_random_up: 12
+  sampler_random_low: 8
+  phrase_max_length: 5
+  phrase_encoder_batch_size: 100000
+
+infer:
+  doc_top_k: 32
+  embedding_model_path: "/path/to/embedding_model"
+  vector_store_path: "/path/to/vector_store_index"
+  do_sample: true
+  max_new_tokens: 512
+  temperature: 0.7
+  top_k: 50
+
+eval:
+  eval_seed: 0
+  test_data_file: "/path/to/test_data.txt"
+  batch_size: 1
+  task_type: "PROTEIN_DESIGN"
+  save_results_path: "/path/to/save_results.json"

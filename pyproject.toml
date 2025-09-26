@@ -1,0 +1,99 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prodva"
+authors = [
+    { name = "Wei Du", email = "52265901025@stu.ecnu.edu.cn" },
+    { name = "Nuowei Liu", email = "nwliu@stu.ecnu.edu.cn" },
+    { name = "Jie Wang", email = "jiewang.cs@stu.ecnu.edu.cn" },
+    { name = "Jiahao Kuang", email = "pluskuang@163.com" },
+]
+license = "MIT"
+dynamic = [
+    "version"
+]
+dependencies = [
+    "accelerate",
+    "click",
+    "tqdm",
+    "transformers == 4.51.3",
+    "numpy == 1.26.4",
+    "spacy",
+    "torch == 2.7.0",
+    "faiss == 1.9.0",
+    "peft == 0.14.0",
+    "datasets == 3.6.0",
+    "Django == 5.2.1",
+    "nltk",
+    "typing_extensions",
+    "pytest",
+    "langchain == 0.3.25",
+    "langchain_community == 0.3.25",
+    "langchain_core == 0.3.65",
+    "langchain_huggingface == 0.3.0",
+    "langchain-text-splitters == 0.3.8"
+]
+
+[project.scripts]
+dvagen = "cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "dvagen.__version__" }
+
+[tool.ruff]
+target-version = "py311"
+line-length = 119
+indent-width = 4
+
+[tool.ruff.lint]
+ignore = [
+    "C408", # collection
+    "C901", # complex
+    "E501", # line too long
+    "E731", # lambda function
+    "E741", # ambiguous var name
+    "D100", # no doc public module
+    "D101", # no doc public class
+    "D102", # no doc public method
+    "D103", # no doc public function
+    "D104", # no doc public package
+    "D105", # no doc magic method
+    "D107", # no doc __init__
+]
+extend-select = [
+    "C",      # complexity
+    "E",      # error
+    "F",      # pyflakes
+    "I",      # isort
+    "W",      # warning
+    "UP",     # pyupgrade
+    "D",      # pydocstyle
+    "PT009",  # pytest assert
+    "RUF022", # sort __all__
+]
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
+known-first-party = ["dvagen"]
+known-third-party = [
+    "accelerate",
+    "datasets",
+    "gradio",
+    "numpy",
+    "peft",
+    "torch",
+    "transformers",
+    "trl",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+skip-magic-trailing-comma = false
+line-ending = "auto"

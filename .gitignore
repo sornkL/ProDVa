@@ -172,3 +172,12 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+.idea
+.DS_Store
+
+# WebUI
+webui/
+
+scripts
+our_examples

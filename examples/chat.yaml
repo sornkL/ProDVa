@@ -1,0 +1,18 @@
+model:
+  model_name_or_path: "/path/to/prodva"
+  text_encoder_path: "/path/to/prodva/text_tokenizer"
+  language_model_path: "/path/to/prodva/lm_tokenizer"
+  phrase_encoder_path: "/path/to/prodva/phrase_tokenizer"
+  phrase_sampler_type: "PROTEIN_FRAGMENT"
+  phrase_encoder_batch_size: 100000
+  protein_fragment_mapping_file: "/path/to/prodva/phrases.json"
+
+infer:
+  doc_top_k: 32
+  embedding_model_path: "/path/to/embedding_model"
+  vector_store_path: "/path/to/vector_store_index"
+  do_sample: true
+  max_new_tokens: 512
+  temperature: 0.7
+  top_k: 50
+  protein_sequence_mapping_file: "/path/to/prodva/protein_sequence_mapping.json"
