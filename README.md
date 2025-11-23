@@ -87,5 +87,11 @@ Some newly added arguments  specific to ProDVa are also documented.
 If you find the codebase helpful, please also cite the DVAGen framework:
 
 ```
-Coming Soon!
+@inproceedings{du2025dvagen,
+  title={DVAGEN: Dynamic Vocabulary Augmented Generation},
+  author={Du, Wei and Liu, Nuowei and Wang, Jie and Kuang, Jiahao and Ji, Tao and Wang, Xiaoling and Wu, Yuanbin},
+  booktitle={Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: System Demonstrations},
+  pages={365--372},
+  year={2025}
+}
 ```

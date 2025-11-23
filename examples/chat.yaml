@@ -8,11 +8,11 @@ model:
   protein_fragment_mapping_file: "/path/to/prodva/phrases.json"
 
 infer:
-  doc_top_k: 32
+  doc_top_k: 16
   embedding_model_path: "/path/to/embedding_model"
   vector_store_path: "/path/to/vector_store_index"
   do_sample: true
-  max_new_tokens: 512
+  max_new_tokens: 256
   temperature: 0.7
-  top_k: 50
+  top_k: 950
   protein_sequence_mapping_file: "/path/to/prodva/protein_sequence_mapping.json"
